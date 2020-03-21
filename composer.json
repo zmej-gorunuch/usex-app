@@ -1,0 +1,14 @@
+{
+  "name": "eugene-m/usex-app",
+  "description": "Mini framework",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mazuryk Eugene",
+      "email": "z.g-web@ukr.net"
+    }
+  ],
+  "require": {
+    "ext-mbstring": "*"
+  }
+}
