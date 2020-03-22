@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 /**
  * Class Mail
  * Клас для відправки E-mail

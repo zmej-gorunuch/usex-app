@@ -10,5 +10,11 @@
   ],
   "require": {
     "ext-mbstring": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "core\\": "app/core",
+      "controller\\": "app/controller"
+    }
   }
 }

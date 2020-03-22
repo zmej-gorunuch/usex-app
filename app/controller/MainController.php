@@ -1,6 +1,9 @@
 <?php
 
-namespace app\controller;
+namespace controller;
+
+use core\Controller;
+use Exception;
 
 /**
  * Class MainController
@@ -8,12 +11,15 @@ namespace app\controller;
  * @package app\controller
  * @author Mazuryk Eugene
  */
-class MainController {
+class MainController extends Controller {
 	/**
 	 * Головна сторінка
+	 *
+	 * @throws Exception
 	 */
 	public function index() {
-		require_once 'app/view/home.php';
+		$text = 'Це початковий PHP каркас, призначений для створення веб-ресурсів.';
+		$this->view->render( 'home', compact( 'text' ) );
 	}
 
 	/**

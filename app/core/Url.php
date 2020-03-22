@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace core;
 
 use Exception;
 use Traversable;
@@ -338,10 +338,10 @@ class Url {
 				$this->actionSeparator ), 1 );
 		}
 		// Перевірка на namespace
-		if ( method_exists( '\\app\\controller\\' . $this->className,
+		if ( method_exists( '\\controller\\' . $this->className,
 			$this->classAction )
 		) {
-			$this->className = '\\app\\controller\\' . $this->className;
+			$this->className = '\\controller\\' . $this->className;
 			$this->className = str_replace( '\\', DIRECTORY_SEPARATOR,
 				$this->className );
 		}

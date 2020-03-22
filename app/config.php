@@ -1,4 +1,4 @@
 <?php
-$config = [
+return [
 	'siteName' => 'My site',
 ];
