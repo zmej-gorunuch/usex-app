@@ -8,19 +8,19 @@
     <title>UseX-app</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
-    <link rel="stylesheet" href="/frontend/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/frontend/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app/view/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/app/view/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="/frontend/css/style.css"/>
-    <link rel="stylesheet" href="/frontend/css/templatemo-style.css">
+    <link rel="stylesheet" href="/app/view/css/style.css"/>
+    <link rel="stylesheet" href="/app/view/css/templatemo-style.css">
 
-    <script type="text/javascript" src="/frontend/js/modernizr.custom.86080.js"></script>
+    <script type="text/javascript" src="/app/view/js/modernizr.custom.86080.js"></script>
 </head>
 <body>
 
 <?php echo $this->content ?>
 
-<script type="text/javascript" src="/frontend/js/particles.js"></script>
-<script type="text/javascript" src="/frontend/js/app.js"></script>
+<script type="text/javascript" src="/app/view/js/particles.js"></script>
+<script type="text/javascript" src="/app/view/js/app.js"></script>
 </body>
 </html>

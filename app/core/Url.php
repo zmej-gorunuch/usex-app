@@ -13,8 +13,11 @@ use Traversable;
  * @author Mazuryk Eugene
  */
 class Url {
+	/** @var string Розширення класів контроллерів */
 	public $controllerSeparator = 'Controller';
+	/** @var string Розділювач методі контроллера */
 	public $actionSeparator = '@';
+
 	protected $className;
 	protected $classAction;
 	protected $routes = [];
@@ -46,11 +49,6 @@ class Url {
 
 	/**
 	 * Додавання маршрутів із масиву
-	 *
-	 * Формат:
-	 *   $routes = array(
-	 *      array($method, $route, $target, $name)
-	 *   );
 	 *
 	 * @param array $routes
 	 *
@@ -105,7 +103,6 @@ class Url {
 			} else {
 				$this->namedRoutes[ $name ] = $route;
 			}
-
 		}
 
 		return;

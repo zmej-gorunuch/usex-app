@@ -19,5 +19,4 @@ $config = array_merge(
 );
 
 /*** Run application ***/
-$application = new App();
-$application->run( $config );
+App::run( $config );

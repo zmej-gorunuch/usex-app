@@ -12,7 +12,7 @@ use Exception;
  */
 class App {
 
-	public $router;
+	public $config = [];
 
 	/**
 	 * Запуск головного класу
@@ -21,8 +21,8 @@ class App {
 	 *
 	 * @throws Exception
 	 */
-	public function run( $config = [] ) {
-		$this->router = new Url();
-		$this->router->router( $config['routes'] );
+	public static function run( $config = [] ) {
+		$router = new Url();
+		$router->router( $config['routes'] );
 	}
 }

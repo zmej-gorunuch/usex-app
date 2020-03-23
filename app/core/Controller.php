@@ -2,6 +2,8 @@
 
 namespace core;
 
+use Exception;
+
 /**
  * Class Controller
  * Головний клас контроллерів
@@ -9,11 +11,21 @@ namespace core;
  * @package core
  * @author Mazuryk Eugene
  */
-class Controller {
+class Controller extends App {
 
-	public $view;
+	private $view;
+	private $model;
 
-	public function __construct() {
-		$this->view = new View();
+	/**
+	 * Рендеринг сторінки
+	 *
+	 * @param $template
+	 * @param $values
+	 *
+	 * @throws Exception
+	 */
+	public function render( $template, $values ) {
+		$this->view  = new View();
+		$this->view->render( $template, $values );
 	}
 }

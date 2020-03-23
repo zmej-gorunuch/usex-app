@@ -21,7 +21,7 @@ use core\Url;
         <div class="tm-content col-xl-6 col-sm-8 col-xs-8 ml-auto section">
             <header class="mb-5">
                 <a href="<?php echo Url::home() ?>">
-                    <img style="width: 300px" src="/frontend/img/usex-logo.svg" alt="UseX logo">
+                    <img style="width: 300px" src="/app/view/img/usex-logo.svg" alt="UseX logo">
                 </a>
             </header>
             <p class="mb-5">

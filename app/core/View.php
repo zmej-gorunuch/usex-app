@@ -12,9 +12,13 @@ use Exception;
  * @author Mazuryk Eugene
  */
 class View {
-
+	/** @var string Головний файл шаблону */
 	public $templateLayout = 'app/view/layout/main.php';
+	/** @var string Шлях до папки з шаблонами */
 	public $templatePath = 'app/view/';
+	/** @var string Розширення файлів шаблонів */
+	public $templateExtension = '.php';
+	/** @var array Вміст рендеру шаблону */
 	public $content = [];
 
 	/**
@@ -48,7 +52,7 @@ class View {
 		ob_start();
 		// Отримання шаблону сторінки
 		if ( $template ) {
-			$template = $this->templatePath . $template . '.php';
+			$template = $this->templatePath . $template . $this->templateExtension;
 			if ( ! file_exists( $template ) ) {
 				throw new Exception( 'Файл шаблону "' . $template . '" не знайдено!' );
 			}
