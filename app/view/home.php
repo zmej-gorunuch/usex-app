@@ -1,6 +1,6 @@
 <?php
 
-use core\Url;
+use library\Url;
 
 /** @var $text controller\MainController */
 
@@ -25,28 +25,31 @@ use core\Url;
                 </a>
             </header>
             <p class="mb-5">
-                <?php echo $text; ?>
+				<?php echo $text; ?>
             </p>
-            <form action="#" method="get" class="subscribe-form">
-                <div class="row form-section">
-                    <div class="col-md-7 col-sm-7 col-xs-7">
-                        <input name="email" type="text" class="form-control" id="contact_email"
-                               placeholder="Your Email..." required/>
-                    </div>
-                    <div class="col-md-5 col-sm-5 col-xs-5">
-                        <button type="submit" class="tm-btn-subscribe">Subscribe</button>
-                    </div>
+            <div class="row form-section">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <a href="https://github.com/zmej-gorunuch/usex-app" target="_blank"
+                       class="btn tm-btn-subscribe">Переглянути на GitHub</a>
                 </div>
-            </form>
+            </div>
             <div class="tm-social-icons-container text-xs-center">
-                <a href="#" class="tm-social-link"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="tm-social-link"><i class="fa fa-google-plus"></i></a>
-                <a href="#" class="tm-social-link"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="tm-social-link"><i class="fa fa-linkedin"></i></a>
+                <a href="#" target="_blank" class="tm-social-link">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="https://github.com/zmej-gorunuch" target="_blank" class="tm-social-link">
+                    <i class="fa fa-github"></i>
+                </a>
+                <a href="#" target="_blank" class="tm-social-link">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a href="mailto:z.g-web@ukr.net" class="tm-social-link">
+                    <i class="fa fa-envelope"></i>
+                </a>
             </div>
         </div>
     </div>
     <div class="footer-link">
-        <p>Copyright © 2020 UseX</p>
+        <p>Всі права не захистити. © 2020 UseX</p>
     </div>
 </div>

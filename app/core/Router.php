@@ -6,13 +6,14 @@ use Exception;
 use Traversable;
 
 /**
- * Class Url
+ * Class Router
  * Клас для роботи з url
  *
  * @package app\core
  * @author Mazuryk Eugene
  */
-class Url {
+class Router {
+
 	/** @var string Розширення класів контроллерів */
 	public $controllerSeparator = 'Controller';
 	/** @var string Розділювач методі контроллера */
@@ -84,7 +85,7 @@ class Url {
 	}
 
 	/**
-	 * Спрямування маршрут до цілі
+	 * Отримання маршрутів
 	 *
 	 * @param string $method
 	 * @param string $route
@@ -106,21 +107,6 @@ class Url {
 		}
 
 		return;
-	}
-
-	/**
-	 * Url сайту
-	 *
-	 * @return string
-	 */
-	public static function home() {
-		if ( isset( $_SERVER['HTTPS'] ) ) {
-			$protocol = ( $_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off" ) ? "https" : "http";
-		} else {
-			$protocol = 'http';
-		}
-
-		return $protocol . "://" . $_SERVER['HTTP_HOST'];
 	}
 
 	/**
@@ -332,15 +318,13 @@ class Url {
 			$this->className   = strstr( $match['target'], $this->actionSeparator,
 				true );
 			$this->classAction = substr( strrchr( $match['target'],
-				$this->actionSeparator ), 1 );
+					$this->actionSeparator ), 1 ) . 'Action';
 		}
 		// Перевірка на namespace
-		if ( method_exists( '\\controller\\' . $this->className,
+		if ( method_exists( 'controller\\' . $this->className,
 			$this->classAction )
 		) {
-			$this->className = '\\controller\\' . $this->className;
-			$this->className = str_replace( '\\', DIRECTORY_SEPARATOR,
-				$this->className );
+			$this->className = 'controller\\' . $this->className;
 		}
 
 		// Спрямовую на відповідний контролер
@@ -352,7 +336,7 @@ class Url {
 		} else {
 			// 404
 			header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found' );
-			require( 'app/view/404.php' );
+			require( './app/view/404.php' );
 		}
 	}
 }

@@ -1,15 +1,16 @@
 <?php
 
-namespace core;
+namespace library;
 
 /**
  * Class Mail
- * Клас для відправки E-mail
+ * Бібліотека для роботи з email
  *
  * @package app\core
  * @author Mazuryk Eugene
  */
 class Mail {
+
 	/**
 	 * Від кого
 	 */

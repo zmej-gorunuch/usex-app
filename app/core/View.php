@@ -12,6 +12,7 @@ use Exception;
  * @author Mazuryk Eugene
  */
 class View {
+
 	/** @var string Головний файл шаблону */
 	public $templateLayout = 'app/view/layout/main.php';
 	/** @var string Шлях до папки з шаблонами */

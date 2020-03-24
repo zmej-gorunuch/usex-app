@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
+    <a href="#" target="_blank">
         <img src="http://usex.pp.ua/img/usex-logo.svg" height="100px">
     </a>
     <h1 align="center">UseX App - PHP Framework</h1>

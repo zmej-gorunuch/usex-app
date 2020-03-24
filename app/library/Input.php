@@ -1,15 +1,16 @@
 <?php
 
-namespace core;
+namespace library;
 
 /**
  * Class Input
- * Клас очистки даних з форм
+ * Бібліотека для очистки даних з форм
  *
- * @package app\core
+ * @package library
  * @author Mazuryk Eugene
  */
 class Input {
+
 	/**
 	 * Попередня обробка
 	 *

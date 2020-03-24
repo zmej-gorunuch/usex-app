@@ -22,7 +22,7 @@ class App {
 	 * @throws Exception
 	 */
 	public static function run( $config = [] ) {
-		$router = new Url();
+		$router = new Router();
 		$router->router( $config['routes'] );
 	}
 }

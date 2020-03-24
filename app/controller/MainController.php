@@ -17,7 +17,7 @@ class MainController extends Controller {
 	 *
 	 * @throws Exception
 	 */
-	public function index() {
+	public function indexAction() {
 		$text = 'Це початковий PHP каркас, призначений для створення веб-ресурсів.';
 		$this->render( 'home', compact( 'text' ) );
 	}
