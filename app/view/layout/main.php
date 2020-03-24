@@ -7,6 +7,7 @@
 
     <title>UseX-app</title>
 
+    <link rel=icon href="/app/view/img/favicon.svg" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
     <link rel="stylesheet" href="/app/view/css/font-awesome.min.css">
     <link rel="stylesheet" href="/app/view/css/bootstrap.min.css">
