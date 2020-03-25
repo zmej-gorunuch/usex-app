@@ -13,7 +13,6 @@ class Controller {
 
 	public $view;
 	public $model;
-	public $rout;
 	public $config;
 
 	public function __construct() {

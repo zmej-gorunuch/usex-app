@@ -338,8 +338,7 @@ class Router {
 			], $match['params'] );
 		} else {
 			// 404
-			header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found' );
-			require( './app/view/404.php' );
+			View::errorPage();
 		}
 	}
 }

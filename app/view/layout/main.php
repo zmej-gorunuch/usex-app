@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/app/view/css/templatemo-style.css">
 
     <script type="text/javascript" src="/app/view/js/modernizr.custom.86080.js"></script>
+	<?php echo $this->topAssets ?>
 </head>
 <body>
 
@@ -23,5 +24,6 @@
 
 <script type="text/javascript" src="/app/view/js/particles.js"></script>
 <script type="text/javascript" src="/app/view/js/app.js"></script>
+<?php echo $this->bottomAssets ?>
 </body>
 </html>

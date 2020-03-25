@@ -13,23 +13,58 @@ use Exception;
  */
 class View {
 
-	/** @var string Головний файл шаблону */
-	public $templateLayout = 'app/view/layout/main.php';
+	/** @var string назва головного шаблону */
+	public $layout = 'main';
+	/** @var string назва шаблону помилки */
+	public $error = '404';
 	/** @var string Шлях до папки з шаблонами */
 	public $templatePath = 'app/view/';
 	/** @var string Розширення файлів шаблонів */
 	public $templateExtension = '.php';
-	/** @var array Вміст рендеру шаблону */
-	public $content = [];
+	/** Вміст рендеру шаблону */
+	public $content;
+	/** Підключення скриптів в head */
+	public $topAssets;
+	/** Підключення скриптів перед закриттям body */
+	public $bottomAssets;
+
+	public function addTopAssets() {
+		$values = [];
+		ob_start();
+		foreach ( $values as $key => $value ) {
+			if ( $key == 'css' ) {
+				foreach ( $value as $item ) {
+					echo PHP_EOL . '<link rel="stylesheet" href="' . $item . '">';
+				}
+			}
+		}
+		foreach ( $values as $key => $value ) {
+			if ( $key == 'js' ) {
+				foreach ( $value as $item ) {
+					echo PHP_EOL . '<script type="text/javascript" src="' . $item . '"></script>';
+				}
+			}
+		}
+		$output = ob_get_contents();
+		ob_end_clean();
+
+		return $output;
+	}
 
 	/**
 	 * Парсинг каркасу шаблону
 	 *
 	 * @return false|string
+	 * @throws Exception
 	 */
-	public function parseLayout() {
+	private function parseLayout() {
+		$path = 'app/view/layout/' . $this->layout . $this->templateExtension;
+		if ( ! file_exists( $path ) ) {
+			throw new Exception( 'Не знайдено головний шаблон ' . $path );
+		}
+
 		ob_start();
-		include( $this->templateLayout );
+		include( $path );
 		$output = ob_get_contents();
 		ob_end_clean();
 
@@ -45,7 +80,7 @@ class View {
 	 * @return false|string
 	 * @throws Exception
 	 */
-	public function parseTemplate( $template, $values ) {
+	private function parseTemplate( $template, $values ) {
 		// Формування змінних в шаблоні
 		if ( is_array( $values ) && ! empty( $values ) ) {
 			extract( $values );
@@ -68,6 +103,25 @@ class View {
 		return $output;
 	}
 
+	public function getError() {
+		return $this->error;
+	}
+
+	/**
+	 * Вивід сторінки 404
+	 *
+	 * @throws Exception
+	 */
+	public static function errorPage() {
+		$path = 'app/view/404.php';
+		if ( ! file_exists( $path ) ) {
+			throw new Exception( 'Не знайдено файл сторінки помилки "' . $path . '"' );
+		}
+		header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found' );
+		require $path;
+		exit;
+	}
+
 	/**
 	 * Загальний рендер сторінки
 	 *
@@ -77,7 +131,9 @@ class View {
 	 * @throws Exception
 	 */
 	public function render( $template, $values ) {
-		$this->content = $this->parseTemplate( $template, $values );
+		$this->content      = $this->parseTemplate( $template, $values );
+		$this->topAssets    = $this->addTopAssets();
+		$this->bottomAssets = $this->addTopAssets();
 		echo $this->parseLayout();
 	}
 }
