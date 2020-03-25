@@ -19,7 +19,7 @@ class MainController extends Controller {
 	 */
 	public function indexAction() {
 		$text = 'Це початковий PHP каркас, призначений для створення веб-ресурсів.';
-		$this->render( 'home', compact( 'text' ) );
+		$this->view->render( 'home', compact( 'text' ) );
 	}
 
 	/**

@@ -305,7 +305,10 @@ class Router {
 	 *
 	 * @throws Exception
 	 */
-	public function router( array $routes ) {
+	public function run() {
+		// Отримання шляхів з файлу
+		$routes = require( './app/routs.php' );
+
 		// Додаю всі створені роути
 		$this->addRoutes( $routes );
 

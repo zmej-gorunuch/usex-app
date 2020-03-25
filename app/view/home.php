@@ -28,7 +28,7 @@ use library\Url;
 				<?php echo $text; ?>
             </p>
             <div class="row form-section">
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-7 col-sm-7 col-xs-7">
                     <a href="https://github.com/zmej-gorunuch/usex-app" target="_blank"
                        class="btn tm-btn-subscribe">Переглянути на GitHub</a>
                 </div>

@@ -1,6 +1,6 @@
 <?php
 
-use core\App;
+use core\Router;
 
 ini_set( 'display_errors', 1 );
 ini_set( 'display_startup_errors', 1 );
@@ -12,12 +12,12 @@ require_once './app/config.php';
 /*** Autoload classes ***/
 require_once( __DIR__ . '/vendor/autoload.php' );
 
-$config = array_merge(
-	require( __DIR__ . '/app/config.php' ),
-	require( __DIR__ . '/app/routs.php' )
-);
+//$config = array_merge(
+//	require( __DIR__ . '/app/config.php' )
+//);
 
-//session_start();
+session_start();
 
 /*** Run application ***/
-App::run( $config );
+$router = new Router();
+$router->run();
