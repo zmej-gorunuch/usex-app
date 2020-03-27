@@ -6,7 +6,6 @@
  *   ];
  */
 return [
-	$config = [
-		'siteName' => 'UseХ-app - PHP каркас для створення веб-ресурсів',
-	]
+	'siteName'     => 'UseХ-app - PHP каркас для створення веб-ресурсів',
+	'templatePath' => 'app/view',
 ];

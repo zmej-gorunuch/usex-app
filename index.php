@@ -14,10 +14,6 @@ require_once './app/config.php';
 /*** Autoload classes ***/
 require_once( __DIR__ . '/vendor/autoload.php' );
 
-//$config = array_merge(
-//	require( __DIR__ . '/app/config.php' )
-//);
-
 session_start();
 
 /*** Run application ***/

@@ -134,7 +134,7 @@ class Router {
 		if ( preg_match_all( '`(/|\.|)\[([^:\]]*+)(?::([^:\]]*+))?](\?|)`', $route, $matches, PREG_SET_ORDER ) ) {
 
 			foreach ( $matches as $match ) {
-				list( $block, $pre, $param, $optional ) = $match;
+				[ $block, $pre, $param, $optional ] = $match;
 
 				if ( $pre ) {
 					$block = substr( $block, 1 );
@@ -186,7 +186,7 @@ class Router {
 		$_REQUEST = array_merge( $_GET, $_POST );
 
 		foreach ( $this->routes as $handler ) {
-			list( $method, $_route, $target, $name ) = $handler;
+			[ $method, $_route, $target, $name ] = $handler;
 
 			$methods      = explode( '|', $method );
 			$method_match = false;
@@ -272,7 +272,7 @@ class Router {
 
 			$matchTypes = $this->matchTypes;
 			foreach ( $matches as $match ) {
-				list( $block, $pre, $type, $param, $optional ) = $match;
+				[ $block, $pre, $type, $param, $optional ] = $match;
 
 				if ( isset( $matchTypes[ $type ] ) ) {
 					$type = $matchTypes[ $type ];
@@ -301,8 +301,6 @@ class Router {
 	/**
 	 * Підключення роутів
 	 *
-	 * @param array $routes 'app/routs.php'
-	 *
 	 * @throws Exception
 	 */
 	public function run() {
@@ -314,7 +312,6 @@ class Router {
 
 		// Отримую контролери та методи
 		$match = $this->match();
-
 		if ( is_array( $match )
 		     && strpos( $match['target'], $this->controllerSeparator ) !== false
 		) {

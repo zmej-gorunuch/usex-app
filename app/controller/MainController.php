@@ -12,12 +12,14 @@ use Exception;
  * @author Mazuryk Eugene
  */
 class MainController extends Controller {
+
 	/**
 	 * Головна сторінка
 	 *
 	 * @throws Exception
 	 */
 	public function indexAction() {
+		$this->view->title = 'Головна сторінка';
 		$text = 'Це початковий PHP каркас, призначений для створення веб-ресурсів.';
 		$this->view->render( 'home', compact( 'text' ) );
 	}

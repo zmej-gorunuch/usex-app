@@ -1,7 +1,9 @@
 <?php
-function debug( $value ) {
+function debug( $value, $exit = true ) {
 	echo '<pre>';
 	var_dump( $value );
 	echo '</pre>';
-	exit();
+	if ( $exit ) {
+		exit();
+	}
 }

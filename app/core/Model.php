@@ -11,4 +11,11 @@ namespace core;
  */
 class Model {
 
+	/** @var array Налаштування сайту */
+	protected $config = [];
+
+	public function __construct( $config ) {
+		$this->config = $config;
+	}
+
 }

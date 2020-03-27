@@ -13,10 +13,11 @@ class Controller {
 
 	public $view;
 	public $model;
-	public $config;
+	protected $config = []; // Налаштування сайту
 
 	public function __construct() {
-		$this->view = new View();
-		$this->model = new Model();
+		$this->config = require( './app/config.php' );
+		$this->view = new View($this->config);
+		$this->model = new Model($this->config);
 	}
 }

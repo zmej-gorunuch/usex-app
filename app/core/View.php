@@ -13,20 +13,19 @@ use Exception;
  */
 class View {
 
-	/** @var string назва головного шаблону */
-	public $layout = 'main';
-	/** @var string назва шаблону помилки */
-	public $error = '404';
-	/** @var string Шлях до папки з шаблонами */
-	public $templatePath = 'app/view/';
-	/** @var string Розширення файлів шаблонів */
-	public $templateExtension = '.php';
-	/** Вміст рендеру шаблону */
-	public $content;
-	/** Підключення скриптів в head */
-	public $topAssets;
-	/** Підключення скриптів перед закриттям body */
-	public $bottomAssets;
+	protected static $config = []; // Налаштування сайту
+	public $layout = 'main'; // Назва головного шаблону
+	public $templateExtension = '.php'; // Розширення файлів шаблонів
+	public $content; // Вміст рендеру шаблону
+	public $topAssets; // Підключення скриптів в head
+	public $bottomAssets; // Підключення скриптів перед закриттям body
+	public $title; // Заголовок сторінки
+	public $description = ''; // Опис сторінки
+
+	public function __construct( $config ) {
+		self::$config = $config;
+		$this->title  = $config['siteName'];
+	}
 
 	public function addTopAssets() {
 		$values = [];
@@ -58,7 +57,7 @@ class View {
 	 * @throws Exception
 	 */
 	private function parseLayout() {
-		$path = 'app/view/layout/' . $this->layout . $this->templateExtension;
+		$path = self::$config['templatePath'] . '/layout/' . $this->layout . $this->templateExtension;
 		if ( ! file_exists( $path ) ) {
 			throw new Exception( 'Не знайдено головний шаблон ' . $path );
 		}
@@ -88,7 +87,7 @@ class View {
 		ob_start();
 		// Отримання шаблону сторінки
 		if ( $template ) {
-			$template = $this->templatePath . $template . $this->templateExtension;
+			$template = self::$config['templatePath'] . '/' . $template . $this->templateExtension;
 			if ( ! file_exists( $template ) ) {
 				throw new Exception( 'Файл шаблону "' . $template . '" не знайдено!' );
 			}
@@ -103,21 +102,18 @@ class View {
 		return $output;
 	}
 
-	public function getError() {
-		return $this->error;
-	}
-
 	/**
 	 * Вивід сторінки 404
 	 *
+	 * @param string $title
 	 * @throws Exception
 	 */
-	public static function errorPage() {
-		$path = 'app/view/404.php';
+	public static function errorPage($title = '404 Not Found') {
+		$path = './app/view/404.php';
 		if ( ! file_exists( $path ) ) {
 			throw new Exception( 'Не знайдено файл сторінки помилки "' . $path . '"' );
 		}
-		header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found' );
+		header( $_SERVER["SERVER_PROTOCOL"] . ' ' . $title );
 		require $path;
 		exit;
 	}
